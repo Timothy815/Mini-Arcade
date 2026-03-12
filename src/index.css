@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-arcade: "Press Start 2P", system-ui, sans-serif;
+  --font-retro: "VT323", monospace;
+}
+
+body {
+  background-color: #050505;
+  color: #fff;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* CRT Scanline effect */
+.crt::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+.neon-text {
+  text-shadow: 0 0 5px theme('colors.cyan.400'), 0 0 10px theme('colors.cyan.500'), 0 0 20px theme('colors.cyan.600');
+}
+
+.neon-border {
+  box-shadow: 0 0 5px theme('colors.fuchsia.400'), 0 0 10px theme('colors.fuchsia.500') inset;
+  border: 2px solid theme('colors.fuchsia.400');
+}
